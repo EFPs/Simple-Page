@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Route, withRouter} from 'react-router-dom';
-// import Signup from "./Signup";
+import Profile from "./Profile.jsx";
 import Main from  './Main.jsx';
 import Login from  './Login.jsx';
 import Signup from  './Signup.jsx';
@@ -61,10 +61,7 @@ class App extends Component{
         ) : (
             <div>
 
-                {authenticated &&
-                <button onClick={()=> auth.signOut()}>
-                    Logout
-                </button>
+                {authenticated
                 }
 
                 <PrivateRoute
@@ -74,6 +71,7 @@ class App extends Component{
 
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/signup" component={Signup}/>
+                <Route exact path="/profile" component={Profile}/>
             </div>
         )
         return(
@@ -87,6 +85,10 @@ class App extends Component{
                             { authenticated &&
                             <Button variant="raised" color="default" onClick={() => auth.signOut()}>Log out</Button>
                             }
+
+                            {authenticated
+                            && <Button variant="raised" color="default" onClick={() => {this.props.history.push('/profile')}}> Profile </Button>}
+
                         </Toolbar>
                     </AppBar>
                     { content }

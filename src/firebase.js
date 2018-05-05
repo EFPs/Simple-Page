@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+// import firebase from 'react-native-firebase';
 
 // Initialize Firebase
 const config = {

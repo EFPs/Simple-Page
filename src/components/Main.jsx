@@ -85,6 +85,7 @@ class Main extends Component {
                 <Grid item xs={6}>
                     <Paper className={classes.paper}>
                         <p>Hello, { auth.currentUser.email }</p>
+
                         <List className={classes.list}>
                             { /* Render the list of messages */
                                 this.state.notes.map( (note,index) =>
